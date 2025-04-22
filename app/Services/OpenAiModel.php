@@ -24,6 +24,8 @@ class OpenAiModel implements ILLMModel
             ],
         ]);
 
-        return $result;
+        $firstChoice = $result->choices[0];
+
+        return $firstChoice->message->content;
     }
 }
