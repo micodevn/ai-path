@@ -9,6 +9,12 @@ class Attempt extends Model
     protected $primaryKey = 'id';
     public $incrementing = false;
 
+    protected $fillable = [
+        'user_id',
+        'result',
+        'history',
+    ];
+
     protected static function boot()
     {
         parent::boot();

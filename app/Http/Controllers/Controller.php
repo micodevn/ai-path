@@ -8,12 +8,18 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Http;
 use App\Models\Attempt;
+use App\Services\ILLMModel;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    protected ILLMModel $llm;
+    public function __construct(ILLMModel $llm)
+    {
+        $this->llm = $llm;
+    }
 
     public function submit(Request $request)
     {
@@ -23,7 +29,7 @@ class Controller extends BaseController
 
             $username = $request->input('userName');
             $phone = $request->input('phone');
-            $answers = $request->input('answers');
+            $answers = $request->input('submitData');
 
             if (!$username || !$phone || !$answers) {
                 throw new \Exception("Error params");
@@ -46,15 +52,15 @@ class Controller extends BaseController
             $rsPrompt2 = $this->prompt2($rsPrompt1, $answerQ11,$answerQ12);
 
             // Lưu attempt
-            Attempt::create([
-                'user_id' => $user->user_id,
+            $attempt = Attempt::create([
+                'user_id' => $user->id,
                 'result' => $rsPrompt2,
                 'history' => json_encode($answers),
             ]);
 
-//            DB::commit();
+            DB::commit();
 
-            return response()->json(['message' => 'Attempt submitted successfully']);
+            return response()->json(['message' => 'Attempt submitted successfully','attemptId' => $attempt->id]);
 
         } catch (\Exception $e) {
 
@@ -96,8 +102,9 @@ Yêu cầu với công việc của bạn:
 
         $prompt = $prefix . $answersConvert;
 
-        $result = "RS Prompt 1";
-        return $prompt;
+
+        $result = $this->llm->ask($prompt);
+        return $result;
     }
 
     private function prompt2($resultPrompt1, $ans11, $ans12)
@@ -114,7 +121,8 @@ Yêu cầu với công việc của bạn:
 - Bạn KHÔNG được gợi ý thêm làm việc gì.
 - Bạn KHÔNG đưa ra lời mời hay khuyến nghị để thiết kế mục tiêu sự nghiệp
 ";
-        $result = "RS Prompt 2";
-        return $prompt;
+
+        $result = $this->llm->ask($prompt);
+        return $result;
     }
 }

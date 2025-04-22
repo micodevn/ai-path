@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/mbti', function () {
+    $htmlContent = file_get_contents(resource_path('html/MBTI/index.html'));
+    return view('mbti', compact('htmlContent'));
+});
