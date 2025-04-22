@@ -39,9 +39,11 @@ class Controller extends BaseController
             }
 
             $rsPrompt1 = $this->prompt1($answers);
-            dd($rsPrompt1);
-            $rsPrompt2 = $this->prompt2($rsPrompt1, "Ki su","LTV");
 
+            $answerQ11 = $answers[10]['answer'][0] ?? "";
+            $answerQ12 = $answers[11]['answer'] ?? [];
+
+            $rsPrompt2 = $this->prompt2($rsPrompt1, $answerQ11,$answerQ12);
 
             // Lưu attempt
             Attempt::create([
@@ -53,7 +55,9 @@ class Controller extends BaseController
 //            DB::commit();
 
             return response()->json(['message' => 'Attempt submitted successfully']);
+
         } catch (\Exception $e) {
+
             DB::rollBack();
 
             return response()->json([
@@ -64,7 +68,7 @@ class Controller extends BaseController
         return response()->json(['message' => 'Attempt submitted successfully']);
     }
 
-    private function prompt1($data)
+    private function prompt1($answers)
     {
         $prefix = 'Tôi đã làm 01 quiz MBIT rút gọn. Bạn hãy chấm cho tôi
 Yêu cầu với công việc của bạn:
@@ -77,7 +81,20 @@ Yêu cầu với công việc của bạn:
 #Bạn KHÔNG gợi ý thêm gì về Tư vấn sự nghiệp hoặc thêm bất cứ nội dùng gì khác
 #Kết quả làm Quiz MBIT của tôi là:
 ';
-        $prompt = $prefix . $data;
+
+        $answersConvert = '';
+
+
+        foreach ($answers as $q) {
+            $answersConvert .= $q['question'] . PHP_EOL;
+            foreach ($q['answer'] as $answer) {
+                $answersConvert .= $answer . PHP_EOL;
+            }
+            $answersConvert .= PHP_EOL; // ngăn cách giữa các câu hỏi
+        }
+
+
+        $prompt = $prefix . $answersConvert;
 
         $result = "RS Prompt 1";
         return $prompt;
@@ -86,18 +103,18 @@ Yêu cầu với công việc của bạn:
     private function prompt2($resultPrompt1, $ans11, $ans12)
     {
         $prompt = "Tôi có một kết quả MBTI, tôi muốn bạn Tư vấn sự nghiệp.
-                    #KẾT QUẢ MBTI:
-                     " . $resultPrompt1 . "
-                    #YÊU CẦU TƯ VẤN:
-                    - Tôi đang làm kỹ sư lập trình, senior.
-                    - Tôi đang phân vân chở thành " . $ans11 . "hay làm " . $ans12 . ". Bạn hãy cho tôi lời khuyên.
+#KẾT QUẢ MBTI:
+ " . $resultPrompt1 . "
+#YÊU CẦU TƯ VẤN:
+- Tôi đang làm ". $ans11 .".
+- Tôi đang phân vân chở thành " . $ans12[0] . " hay làm " . $ans12[1] . ". Bạn hãy cho tôi lời khuyên.
 
-                    #YÊU CẦU VỚI KẾT QUẢ
-                    - Bạn hãy có lời khuyên lệch hẳn về một hướng (một vị trí công việc)
-                    - Bạn KHÔNG được gợi ý thêm làm việc gì.
-                    - Bạn KHÔNG đưa ra lời mời hay khuyến nghị để thiết kế mục tiêu sự nghiệp
-                    ";
+#YÊU CẦU VỚI KẾT QUẢ
+- Bạn hãy có lời khuyên lệch hẳn về một hướng (một vị trí công việc)
+- Bạn KHÔNG được gợi ý thêm làm việc gì.
+- Bạn KHÔNG đưa ra lời mời hay khuyến nghị để thiết kế mục tiêu sự nghiệp
+";
         $result = "RS Prompt 2";
-        return $result;
+        return $prompt;
     }
 }
