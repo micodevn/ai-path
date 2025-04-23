@@ -21,12 +21,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const answer = JSON.parse(data.attempt.answers);
     const currentJob = answer[10].answer[0];
     const nextJobs = answer[11].answer.join(", ");
-    const htmlContentFirst = resultPromptFirst.replace(/\n/g, "<br>");
-    const htmlContentSecond = result.replace(/\n/g, "<br>");
+    let htmlContentFirst = resultPromptFirst;
+    let htmlContentSecond = result;
     const textBadge = document.getElementById("result-content-body-badge");
     if (validateText(resultPromptFirst)) {
       textBadge.innerHTML = validateText(resultPromptFirst);
     }
+      console.log(htmlContentFirst, htmlContentSecond);
+
+    if (typeof showdown !== "undefined") {
+        const converter = new showdown.Converter();
+
+        htmlContentFirst = converter.makeHtml(htmlContentFirst);
+        htmlContentSecond = converter.makeHtml(htmlContentSecond);
+    }
+
     document.getElementById("user-name-span").innerHTML = DOMPurify.sanitize(userName);
     document.getElementById("result-promt-first").innerHTML = DOMPurify.sanitize(htmlContentFirst);
     document.getElementById("result-promt-second").innerHTML = DOMPurify.sanitize(htmlContentSecond);
