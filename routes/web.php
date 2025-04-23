@@ -21,3 +21,7 @@ Route::get('/mbti', function () {
     $htmlContent = file_get_contents(resource_path('html/MBTI/index.html'));
     return view('mbti', compact('htmlContent'));
 });
+Route::get('/result', function () {
+    $result = file_get_contents(resource_path('html/MBTI/index.html'));
+    return view('result', compact('result'));
+});

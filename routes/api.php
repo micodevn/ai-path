@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/submit', [\App\Http\Controllers\Controller::class, 'submit']);
+Route::get('/result', [\App\Http\Controllers\Controller::class, 'result']);

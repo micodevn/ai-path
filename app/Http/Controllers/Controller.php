@@ -128,4 +128,18 @@ Yêu cầu với công việc của bạn:
         $result = $this->llm->ask($prompt);
         return $result;
     }
+
+
+    public function result(Request $request)
+    {
+        $attemptId = $request->attemptId;
+        if (!$attemptId) {
+            throw new \Exception("Attempt is invalid !");
+        }
+
+        $resultAttempt = Attempt::where("id", $attemptId)->first();
+
+        return response()->json(['success' => true, 'message' => 'success', 'attempt' => $resultAttempt]);
+
+    }
 }
