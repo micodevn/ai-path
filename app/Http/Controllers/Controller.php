@@ -141,10 +141,12 @@ Yêu cầu với công việc của bạn:
         }
 
         $resultAttempt = Attempt::where("id", $attemptId)->first();
-//        $userId = $resultAttempt->user_id_attempt;
-//        $user = User::where("user_id_attempt", $userId)->first();
+        $user = [
+            "name" => $resultAttempt ? $resultAttempt->name : '',
+            "email" => $resultAttempt ? $resultAttempt->email : ''
+        ];
 
-        return response()->json(['success' => true, 'message' => 'success', 'attempt' => $resultAttempt]);
+        return response()->json(['success' => true, 'message' => 'success', 'attempt' => $resultAttempt, 'user' => $user]);
 
     }
 }
