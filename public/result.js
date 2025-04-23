@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const exportPDF = async () => {
     const element = document.getElementById("content-to-print");
+    element.classList.toggle('print-mode', true);
     element.style.backgroundImage = "url('background.png')";
 
     html2canvas(element, {
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
       link.download = "ket-qua.png";
       link.click();
       element.style.backgroundImage = "";
+      element.classList.toggle('print-mode', false);
     });
     // const element = document.getElementById("content-to-print");
     // element.classList.add("print-mode");
