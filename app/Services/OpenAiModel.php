@@ -18,7 +18,7 @@ class OpenAiModel implements ILLMModel
     public function ask($input): string
     {
         $result = $this->client->chat()->create([
-            'model' => 'gpt-4o',
+            'model' => 'gpt-3.5-turbo',
             'messages' => [
                 ['role' => 'user', 'content' => $input],
             ],

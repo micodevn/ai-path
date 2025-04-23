@@ -255,3 +255,11 @@ body {
     content: "*";
     color: red;
 }
+
+ol {
+    list-style-type: circle;
+}
+
+#result-promt-first *, #result-promt-second * {
+    font-size: 1rem;
+}
