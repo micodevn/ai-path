@@ -33,19 +33,19 @@ class Controller extends BaseController
             $name = $request->input('name');
             $answers = $request->input('submitData');
 
-            if (!$userIdAttempt) {
-                throw new \Exception("Error userId");
-            }
+//            if (!$userIdAttempt) {
+//                throw new \Exception("Error userId");
+//            }
 
-            $user = User::where('user_id_attempt', $userIdAttempt)->first();
+//            $user = User::where('user_id_attempt', $userIdAttempt)->first();
 
-            if (!$user) {
-                $user = User::create([
-                    'user_id_attempt' => $userIdAttempt,
-                    'email' => $email,
-                    'name' => $name,
-                ]);
-            }
+//            if (!$user) {
+//                $user = User::create([
+//                    'user_id_attempt' => $userIdAttempt,
+//                    'email' => $email,
+//                    'name' => $name,
+//                ]);
+//            }
 
             $rsPrompt1 = $this->prompt1($answers);
 
@@ -56,7 +56,9 @@ class Controller extends BaseController
 
             // Lưu attempt
             $attempt = Attempt::create([
-                'user_id_attempt' => $user->user_id_attempt,
+                'user_id_attempt' => $userIdAttempt ?? null,
+                'email' => $email ?? null,
+                'name' => $name ?? null,
                 'result' => $rsPrompt2,
                 'result_prompt1' => $rsPrompt1,
                 'answers' => json_encode($answers),
@@ -139,10 +141,10 @@ Yêu cầu với công việc của bạn:
         }
 
         $resultAttempt = Attempt::where("id", $attemptId)->first();
-        $userId = $resultAttempt->user_id_attempt;
-        $user = User::where("user_id_attempt", $userId)->first();
+//        $userId = $resultAttempt->user_id_attempt;
+//        $user = User::where("user_id_attempt", $userId)->first();
 
-        return response()->json(['success' => true, 'message' => 'success', 'attempt' => $resultAttempt, 'user' => $user]);
+        return response()->json(['success' => true, 'message' => 'success', 'attempt' => $resultAttempt]);
 
     }
 }
