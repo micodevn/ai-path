@@ -204,9 +204,7 @@ body {
     align-items: center;
 }
 
-#content-to-print {
-    padding: 24px 0;
-}
+#content-to-print {}
 
 .loading-container {
     position: absolute;
