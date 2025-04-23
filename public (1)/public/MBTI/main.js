@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const name = params.get('name');
   const email = params.get('email');
 
-  let submitBtn = document.getElementById('button-submit');
+  const submitBtn = document.getElementById('button-submit');
   const questions = document.querySelectorAll('.question');
   const validateTextArr = [
     "thất nghiệp", "ở nhà", "ở không", "lang thang", "tự do", "ăn bám", "vô công rồi nghề",
@@ -22,15 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const containsInvalidAnswer = (text) =>
     validateTextArr.some(item => text.toLowerCase().includes(item));
 
-  const showLoading = () => {
-    submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Đang ghi nhận đáp án...';
-    submitBtn.disabled = true;
-  }
-
   const submitForm = async (finalAnswer) => {
-    showLoading();
+    console.log(finalAnswer);
+
     try {
-      const res = await fetch('/api/submit', {
+      const res = await fetch('https://ai-path.dev/api/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
