@@ -19,6 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/result', function () {
-    $result = file_get_contents(public_path('MBTI/index.html'));
+    $result = file_get_contents(public_path('MBTI/result.html'));
     return view('result', compact('result'));
 })->name('result');

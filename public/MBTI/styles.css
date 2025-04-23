@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url(./background.png);
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -58,4 +62,127 @@
   font-size: 14px;
   margin-top: 4px;
   display: none;
+}
+
+.container-result {
+  padding: 54px 0;
+}
+
+.result-image {
+  text-align: center;
+}
+
+.result-content-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  div {
+    color: black;
+  }
+}
+
+.result-content-header-title {
+  span {
+    font-weight: 600;
+  }
+}
+
+.result-content-header-info,
+.result-content-header-mssv {
+  font-size: 12px;
+}
+
+.result-content-header-mssv {
+  span {
+    font-weight: 600;
+  }
+}
+
+.result-content-header-subtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.result-content-body-cover {
+  display: flex;
+  justify-content: center;
+}
+
+.result-content-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: white;
+  border-radius: 24px;
+  max-width: 530px;
+  padding:24px
+}
+
+.result-content-body-title {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.result-content-body-subtitle {
+  display: flex;
+  gap: 4px;
+}
+
+.result-content-body-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FBF34E;
+  border-radius: 12px;
+  padding: 4px 8px;
+  font-weight: 700;
+  font-size: 12px;
+  color: #017CC2;
+  width: 48px;
+}
+
+.result-content-body-job {
+  color: #017CC2;
+  font-weight: 700;
+}
+
+.result-content-body-cover-subtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-content-footer {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-content-btn-download {
+  background-color: #017CC2;
+  font-weight: 700;
+  border: none;
+}
+
+.result-content-btn-close {
+  background-color: #B8B8B8;
+  font-weight: 700;
+  border: none;
+}
+
+.print-mode {
+  background: white !important;
+  color: black !important;
+  overflow: visible !important;
+}
+
+.result-cover {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
 }
