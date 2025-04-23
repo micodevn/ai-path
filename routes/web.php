@@ -14,13 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/mbti', function () {
     $htmlContent = file_get_contents(public_path('MBTI/index.html'));
     return view('mbti', compact('htmlContent'));
 });
+
 Route::get('/result', function () {
     $result = file_get_contents(public_path('MBTI/index.html'));
     return view('result', compact('result'));
