@@ -12,6 +12,7 @@ class Attempt extends Model
     protected $fillable = [
         'user_id_attempt',
         'result',
+        'result_prompt1',
         'answers',
     ];
 

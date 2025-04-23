@@ -58,6 +58,7 @@ class Controller extends BaseController
             $attempt = Attempt::create([
                 'user_id_attempt' => $user->user_id_attempt,
                 'result' => $rsPrompt2,
+                'result_prompt1' => $rsPrompt1,
                 'answers' => json_encode($answers),
             ]);
 
