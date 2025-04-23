@@ -16,6 +16,7 @@ class Controller extends BaseController
     use AuthorizesRequests, ValidatesRequests;
 
     protected ILLMModel $llm;
+
     public function __construct(ILLMModel $llm)
     {
         $this->llm = $llm;
@@ -27,20 +28,22 @@ class Controller extends BaseController
         try {
             DB::beginTransaction();
 
-            $username = $request->input('userName');
-            $phone = $request->input('phone');
+            $userIdAttempt = $request->input('userId');
+            $email = $request->input('email');
+            $name = $request->input('name');
             $answers = $request->input('submitData');
 
-            if (!$username || !$phone || !$answers) {
-                throw new \Exception("Error params");
+            if (!$userIdAttempt) {
+                throw new \Exception("Error userId");
             }
 
-            $user = User::where('phone', $phone)->orWhere('email', $username)->first();
+            $user = User::where('user_id_attempt', $userIdAttempt)->first();
 
             if (!$user) {
                 $user = User::create([
-                    'username' => $username,
-                    'phone' => $phone,
+                    'user_id_attempt' => $userIdAttempt,
+                    'email' => $email,
+                    'name' => $name,
                 ]);
             }
 
@@ -49,29 +52,29 @@ class Controller extends BaseController
             $answerQ11 = $answers[10]['answer'][0] ?? "";
             $answerQ12 = $answers[11]['answer'] ?? [];
 
-            $rsPrompt2 = $this->prompt2($rsPrompt1, $answerQ11,$answerQ12);
+            $rsPrompt2 = $this->prompt2($rsPrompt1, $answerQ11, $answerQ12);
 
             // Lưu attempt
             $attempt = Attempt::create([
-                'user_id' => $user->id,
+                'user_id_attempt' => $user->user_id_attempt,
                 'result' => $rsPrompt2,
-                'history' => json_encode($answers),
+                'answers' => json_encode($answers),
             ]);
 
             DB::commit();
 
-            return response()->json(['message' => 'Attempt submitted successfully','attemptId' => $attempt->id]);
+            return response()->json(['success' => true, 'message' => 'Attempt submitted successfully', 'attempt' => $attempt]);
 
         } catch (\Exception $e) {
 
             DB::rollBack();
 
             return response()->json([
+                'success' => false,
                 'message' => 'Submission failed',
                 'error' => $e->getMessage()
             ], 500);
         }
-        return response()->json(['message' => 'Attempt submitted successfully']);
     }
 
     private function prompt1($answers)
@@ -113,7 +116,7 @@ Yêu cầu với công việc của bạn:
 #KẾT QUẢ MBTI:
  " . $resultPrompt1 . "
 #YÊU CẦU TƯ VẤN:
-- Tôi đang làm ". $ans11 .".
+- Tôi đang làm " . $ans11 . ".
 - Tôi đang phân vân chở thành " . $ans12[0] . " hay làm " . $ans12[1] . ". Bạn hãy cho tôi lời khuyên.
 
 #YÊU CẦU VỚI KẾT QUẢ

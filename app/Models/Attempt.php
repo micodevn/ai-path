@@ -10,9 +10,9 @@ class Attempt extends Model
     public $incrementing = false;
 
     protected $fillable = [
-        'user_id',
+        'user_id_attempt',
         'result',
-        'history',
+        'answers',
     ];
 
     protected static function boot()
