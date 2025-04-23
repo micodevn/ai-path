@@ -18,10 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('/mbti', function () {
-    $htmlContent = file_get_contents(resource_path('html/MBTI/index.html'));
+    $htmlContent = file_get_contents(public_path('MBTI/index.html'));
     return view('mbti', compact('htmlContent'));
 });
 Route::get('/result', function () {
-    $result = file_get_contents(resource_path('html/MBTI/index.html'));
+    $result = file_get_contents(public_path('MBTI/index.html'));
     return view('result', compact('result'));
-});
+})->name('result');

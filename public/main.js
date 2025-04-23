@@ -73,11 +73,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const res = await fetch('http://ai-path.test:8080/api/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          userName: 'taibv',
-          phone: '1998',
-          submitData: finalAnswer
-        })
+          body: JSON.stringify({
+              userId: 22,
+              name: "Văn Tài",
+              submitData: finalAnswer
+          })
       });
       const data = await res.json();
       console.log(data);

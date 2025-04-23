@@ -1,1 +1,1 @@
-{!! $result !!}
+Trang ket qua
