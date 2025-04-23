@@ -252,3 +252,8 @@ body {
         min-width: 530px;
     }
 }
+
+.required {
+    content: "*";
+    color: red;
+}

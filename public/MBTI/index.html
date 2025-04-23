@@ -2,263 +2,274 @@
 <html>
 
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Khảo sát MBTI - Know Yourself, Build Your Career</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
-  <!-- Bootstrap JS (Bundle includes Popper) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Khảo sát MBTI - Know Yourself, Build Your Career</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+    <!-- Bootstrap JS (Bundle includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
     <div class="container-title">KHẢO SÁT MBTI</div>
     <div id="container-content">
-      <form id="quiz-form">
-        <div class="question">
-          <div class="question-title">1. Bạn cảm thấy năng lượng đến từ đâu?</div>
-          <div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q1" id="q1-1"
-                value="a) Từ việc giao tiếp và tương tác với mọi người.">
-              <label class="form-check-label" for="q1-1">
-                a) Từ việc giao tiếp và tương tác với mọi người.
-              </label>
+        <form id="quiz-form">
+            <div class="question">
+                <div class="question-title">1. Bạn cảm thấy năng lượng đến từ đâu? <span class="required">*</span></div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q1" id="q1-1"
+                               value="a) Từ việc giao tiếp và tương tác với mọi người.">
+                        <label class="form-check-label" for="q1-1">
+                            a) Từ việc giao tiếp và tương tác với mọi người.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q1" id="q1-2"
+                               value="b) Từ thời gian một mình, suy nghĩ sâu về những gì đang xảy ra.">
+                        <label class="form-check-label" for="q1-2">
+                            b) Từ thời gian một mình, suy nghĩ sâu về những gì đang xảy ra.
+                        </label>
+                    </div>
+                </div>
             </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q1" id="q1-2"
-                value="b) Từ thời gian một mình, suy nghĩ sâu về những gì đang xảy ra.">
-              <label class="form-check-label" for="q1-2">
-                b) Từ thời gian một mình, suy nghĩ sâu về những gì đang xảy ra.
-              </label>
+            <div class="question">
+                <div class="question-title">2. Bạn thường ưu tiên điều gì khi ra quyết định? <span
+                    class="required">*</span></div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q2" id="q2-1"
+                               value="a) Lý trí, phân tích các yếu tố khách quan.">
+                        <label class="form-check-label" for="q2-1">
+                            a) Lý trí, phân tích các yếu tố khách quan.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q2" id="q2-2"
+                               value="b) Cảm xúc và cách nó ảnh hưởng đến mọi người xung quanh.">
+                        <label class="form-check-label" for="q2-2">
+                            b) Cảm xúc và cách nó ảnh hưởng đến mọi người xung quanh.
+                        </label>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="question">
+                <div class="question-title">3. Bạn thích làm gì hơn trong công việc hoặc học tập? <span
+                    class="required">*</span></div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q3" id="q3-1"
+                               value="a) Làm theo một kế hoạch rõ ràng và có sự tổ chức.">
+                        <label class="form-check-label" for="q3-1">
+                            a) Làm theo một kế hoạch rõ ràng và có sự tổ chức.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q3" id="q3-2"
+                               value="b) Linh hoạt, thích khám phá và làm việc theo cách của riêng mình.">
+                        <label class="form-check-label" for="q3-2">
+                            b) Linh hoạt, thích khám phá và làm việc theo cách của riêng mình.
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="question-title">4. Khi gặp một vấn đề mới, bạn thường làm gì? <span
+                    class="required">*</span></div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q4" id="q4-1"
+                               value="a) Tập trung vào các chi tiết cụ thể, làm theo hướng dẫn đã có.">
+                        <label class="form-check-label" for="q4-1">
+                            a) Tập trung vào các chi tiết cụ thể, làm theo hướng dẫn đã có.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q4" id="q4-2"
+                               value="b) Dành thời gian suy nghĩ về các khả năng và cách giải quyết khác nhau.">
+                        <label class="form-check-label" for="q4-2">
+                            b) Dành thời gian suy nghĩ về các khả năng và cách giải quyết khác nhau.
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="question-title">5. Bạn cảm thấy thoải mái hơn trong tình huống nào? <span
+                    class="required">*</span></div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q5" id="q5-1"
+                               value="a) Thích ở những nơi có người khác, năng động, nói chuyện nhiều.">
+                        <label class="form-check-label" for="q5-1">
+                            a) Thích ở những nơi có người khác, năng động, nói chuyện nhiều.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q5" id="q5-2"
+                               value="b) Thích ở một mình hoặc trong nhóm nhỏ, yên tĩnh.">
+                        <label class="form-check-label" for="q5-2">
+                            b) Thích ở một mình hoặc trong nhóm nhỏ, yên tĩnh.
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="question-title">6. Khi phải hoàn thành một công việc, bạn sẽ làm gì trước? <span
+                    class="required">*</span></div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q6" id="q6-1"
+                               value="a) Lập kế hoạch và bắt tay vào làm ngay.">
+                        <label class="form-check-label" for="q6-1">
+                            a) Lập kế hoạch và bắt tay vào làm ngay.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q6" id="q6-2"
+                               value="b) Chờ đợi, tìm thêm thông tin và tùy cơ ứng biến.">
+                        <label class="form-check-label" for="q6-2">
+                            b) Chờ đợi, tìm thêm thông tin và tùy cơ ứng biến.
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="question-title">7. Bạn thích kiểu công việc nào hơn? <span class="required">*</span></div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q7" id="q7-1"
+                               value="a) Công việc cụ thể, rõ ràng với các yêu cầu chi tiết.">
+                        <label class="form-check-label" for="q7-1">
+                            a) Công việc cụ thể, rõ ràng với các yêu cầu chi tiết.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q7" id="q7-2"
+                               value="b) Công việc đòi hỏi sự sáng tạo và có không gian để thử nghiệm.">
+                        <label class="form-check-label" for="q7-2">
+                            b) Công việc đòi hỏi sự sáng tạo và có không gian để thử nghiệm.
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="question-title">8. Bạn có xu hướng chọn lựa công việc, học tập dựa trên gì? <span
+                    class="required">*</span></div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q8" id="q8-1"
+                               value="a) Các yếu tố thực tế, có thể đo lường và phân tích.">
+                        <label class="form-check-label" for="q8-1">
+                            a) Các yếu tố thực tế, có thể đo lường và phân tích.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q8" id="q8-2"
+                               value="b) Những cơ hội mới, những khía cạnh thú vị hoặc sáng tạo.">
+                        <label class="form-check-label" for="q8-2">
+                            b) Những cơ hội mới, những khía cạnh thú vị hoặc sáng tạo.
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="question-title">9. Bạn cảm thấy sao về các kế hoạch và lịch trình? <span
+                    class="required">*</span></div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q9" id="q9-1"
+                               value="a) Thích có kế hoạch rõ ràng, tuân thủ các quy định.">
+                        <label class="form-check-label" for="q9-1">
+                            a) Thích có kế hoạch rõ ràng, tuân thủ các quy định.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q9" id="q9-2"
+                               value="b) Thích linh hoạt, đôi khi không theo kế hoạch cụ thể.">
+                        <label class="form-check-label" for="q9-2">
+                            b) Thích linh hoạt, đôi khi không theo kế hoạch cụ thể.
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="question-title">10. Bạn cảm thấy như thế nào về những tình huống xã hội? <span
+                    class="required">*</span></div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q10" id="q10-1"
+                               value="a) Thích tham gia vào các cuộc trò chuyện và hoạt động xã hội.">
+                        <label class="form-check-label" for="q10-1">
+                            a) Thích tham gia vào các cuộc trò chuyện và hoạt động xã hội.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q10" id="q10-2"
+                               value="b) Thích quan sát và tham gia khi cảm thấy cần thiết, nhưng không quá năng động.">
+                        <label class="form-check-label" for="q10-2">
+                            b) Thích quan sát và tham gia khi cảm thấy cần thiết, nhưng không quá năng động.
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="container-title">YÊU CẦU TƯ VẤN LỰA CHỌN SỰ NGHIỆP</div>
+        <div class="question-write-container" data-type="text">
+            <div>
+                <div class="question-write" data-type="text">
+                    <div class="question-title">11. Bạn đang làm công việc gì? <span class="required">*</span></div>
+                    <input type="text" class="form-control write-answer" name="q11" id="q11-input"
+                           placeholder="Nhập câu trả lời của bạn tại đây...">
+                </div>
+            </div>
+            <div>
+                <div class="question-write" data-type="text">
+                    <div class="question-title">12. Nêu 2 lựa chọn mục tiêu sự nghiệp dài hạn của bạn: <span
+                        class="required">*</span></div>
+                    <div class="question-write-container">
+                        <div class="question-write-content">
+                            <div>Lựa chọn 1:</div>
+                            <input type="text" class="form-control write-answer" name="q11" id="q11-input"
+                                   placeholder="Nhập câu trả lời của bạn tại đây...">
+                        </div>
+                        <div class="question-write-content">
+                            <div>Lựa chọn 2:</div>
+                            <input type="text" class="form-control write-answer" name="q11" id="q11-input"
+                                   placeholder="Nhập câu trả lời của bạn tại đây...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quìz-form-button">
+                <button id="button-submit" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                    Nộp bài
+                </button>
+                <br>
+                <i>Các phần <span class="required">*</span> là bắt buộc, vui lòng nhập đủ thông tin.</i>
+            </div>
         </div>
-        <div class="question">
-          <div class="question-title">2. Bạn thường ưu tiên điều gì khi ra quyết định?</div>
-          <div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q2" id="q2-1"
-                value="a) Lý trí, phân tích các yếu tố khách quan.">
-              <label class="form-check-label" for="q2-1">
-                a) Lý trí, phân tích các yếu tố khách quan.
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q2" id="q2-2"
-                value="b) Cảm xúc và cách nó ảnh hưởng đến mọi người xung quanh.">
-              <label class="form-check-label" for="q2-2">
-                b) Cảm xúc và cách nó ảnh hưởng đến mọi người xung quanh.
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="question">
-          <div class="question-title">3. Bạn thích làm gì hơn trong công việc hoặc học tập?</div>
-          <div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q3" id="q3-1"
-                value="a) Làm theo một kế hoạch rõ ràng và có sự tổ chức.">
-              <label class="form-check-label" for="q3-1">
-                a) Làm theo một kế hoạch rõ ràng và có sự tổ chức.
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q3" id="q3-2"
-                value="b) Linh hoạt, thích khám phá và làm việc theo cách của riêng mình.">
-              <label class="form-check-label" for="q3-2">
-                b) Linh hoạt, thích khám phá và làm việc theo cách của riêng mình.
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="question">
-          <div class="question-title">4. Khi gặp một vấn đề mới, bạn thường làm gì?</div>
-          <div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q4" id="q4-1"
-                value="a) Tập trung vào các chi tiết cụ thể, làm theo hướng dẫn đã có.">
-              <label class="form-check-label" for="q4-1">
-                a) Tập trung vào các chi tiết cụ thể, làm theo hướng dẫn đã có.
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q4" id="q4-2"
-                value="b) Dành thời gian suy nghĩ về các khả năng và cách giải quyết khác nhau.">
-              <label class="form-check-label" for="q4-2">
-                b) Dành thời gian suy nghĩ về các khả năng và cách giải quyết khác nhau.
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="question">
-          <div class="question-title">5. Bạn cảm thấy thoải mái hơn trong tình huống nào?</div>
-          <div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q5" id="q5-1"
-                value="a) Thích ở những nơi có người khác, năng động, nói chuyện nhiều.">
-              <label class="form-check-label" for="q5-1">
-                a) Thích ở những nơi có người khác, năng động, nói chuyện nhiều.
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q5" id="q5-2"
-                value="b) Thích ở một mình hoặc trong nhóm nhỏ, yên tĩnh.">
-              <label class="form-check-label" for="q5-2">
-                b) Thích ở một mình hoặc trong nhóm nhỏ, yên tĩnh.
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="question">
-          <div class="question-title">6. Khi phải hoàn thành một công việc, bạn sẽ làm gì trước?</div>
-          <div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q6" id="q6-1"
-                value="a) Lập kế hoạch và bắt tay vào làm ngay.">
-              <label class="form-check-label" for="q6-1">
-                a) Lập kế hoạch và bắt tay vào làm ngay.
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q6" id="q6-2"
-                value="b) Chờ đợi, tìm thêm thông tin và tùy cơ ứng biến.">
-              <label class="form-check-label" for="q6-2">
-                b) Chờ đợi, tìm thêm thông tin và tùy cơ ứng biến.
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="question">
-          <div class="question-title">7. Bạn thích kiểu công việc nào hơn?</div>
-          <div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q7" id="q7-1"
-                value="a) Công việc cụ thể, rõ ràng với các yêu cầu chi tiết.">
-              <label class="form-check-label" for="q7-1">
-                a) Công việc cụ thể, rõ ràng với các yêu cầu chi tiết.
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q7" id="q7-2"
-                value="b) Công việc đòi hỏi sự sáng tạo và có không gian để thử nghiệm.">
-              <label class="form-check-label" for="q7-2">
-                b) Công việc đòi hỏi sự sáng tạo và có không gian để thử nghiệm.
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="question">
-          <div class="question-title">8. Bạn có xu hướng chọn lựa công việc, học tập dựa trên gì?</div>
-          <div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q8" id="q8-1"
-                value="a) Các yếu tố thực tế, có thể đo lường và phân tích.">
-              <label class="form-check-label" for="q8-1">
-                a) Các yếu tố thực tế, có thể đo lường và phân tích.
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q8" id="q8-2"
-                value="b) Những cơ hội mới, những khía cạnh thú vị hoặc sáng tạo.">
-              <label class="form-check-label" for="q8-2">
-                b) Những cơ hội mới, những khía cạnh thú vị hoặc sáng tạo.
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="question">
-          <div class="question-title">9. Bạn cảm thấy sao về các kế hoạch và lịch trình?</div>
-          <div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q9" id="q9-1"
-                value="a) Thích có kế hoạch rõ ràng, tuân thủ các quy định.">
-              <label class="form-check-label" for="q9-1">
-                a) Thích có kế hoạch rõ ràng, tuân thủ các quy định.
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q9" id="q9-2"
-                value="b) Thích linh hoạt, đôi khi không theo kế hoạch cụ thể.">
-              <label class="form-check-label" for="q9-2">
-                b) Thích linh hoạt, đôi khi không theo kế hoạch cụ thể.
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="question">
-          <div class="question-title">10. Bạn cảm thấy như thế nào về những tình huống xã hội?</div>
-          <div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q10" id="q10-1"
-                value="a) Thích tham gia vào các cuộc trò chuyện và hoạt động xã hội.">
-              <label class="form-check-label" for="q10-1">
-                a) Thích tham gia vào các cuộc trò chuyện và hoạt động xã hội.
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q10" id="q10-2"
-                value="b) Thích quan sát và tham gia khi cảm thấy cần thiết, nhưng không quá năng động.">
-              <label class="form-check-label" for="q10-2">
-                b) Thích quan sát và tham gia khi cảm thấy cần thiết, nhưng không quá năng động.
-              </label>
-            </div>
-          </div>
-        </div>
-      </form>
-      <div class="container-title">YÊU CẦU TƯ VẤN LỰA CHỌN SỰ NGHIỆP</div>
-      <div class="question-write-container" data-type="text">
-        <div>
-          <div class="question-write" data-type="text">
-            <div class="question-title">11. Bạn đang làm công việc gì</div>
-            <input type="text" class="form-control write-answer" name="q11" id="q11-input"
-              placeholder="Nhập câu trả lời của bạn tại đây...">
-          </div>
-        </div>
-        <div>
-          <div class="question-write" data-type="text">
-            <div class="question-title">12. Nêu 2 lựa chọn mục tiêu sự nghiệp dài hạn của bạn</div>
-            <div class="question-write-container">
-              <div class="question-write-content">
-                <div>Lựa chọn 1:</div>
-                <input type="text" class="form-control write-answer" name="q11" id="q11-input"
-                  placeholder="Nhập câu trả lời của bạn tại đây...">
-              </div>
-              <div class="question-write-content">
-                <div>Lựa chọn 2:</div>
-                <input type="text" class="form-control write-answer" name="q11" id="q11-input"
-                  placeholder="Nhập câu trả lời của bạn tại đây...">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="quìz-form-button">
-          <button id="button-submit" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop">
-            Nộp bài
-          </button>
-        </div>
-      </div>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Vui lòng chờ trong giây lát</h5>
-          </div>
-          <div class="modal-body">
-            Kết quả của bạn đang được ghi nhận.
-          </div>
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Vui lòng chờ trong giây lát</h5>
+                </div>
+                <div class="modal-body">
+                    Kết quả của bạn đang được ghi nhận.
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 </body>
 <script src='main.js'></script>
 
