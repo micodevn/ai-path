@@ -1,6 +1,3 @@
-
-var domain = 'http://ai-path.test:8080'
-
 document.addEventListener("DOMContentLoaded", function () {
   const params = new URLSearchParams(window.location.search);
   const attemptId = params.get("attemptId");
@@ -24,59 +21,76 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const exportPDF = async () => {
     const element = document.getElementById("content-to-print");
-    element.classList.add("print-mode");
+    element.style.backgroundImage = "url('background.png')";
 
-    setTimeout(async () => {
-      const canvas = await html2canvas(element, {
-        scale: 1,
-        useCORS: true,
-      });
+    html2canvas(element, {
+      backgroundColor: null,
+      useCORS: true,              // Cho phép lấy ảnh từ CDN nếu có
+      scale: 2                    // Chất lượng cao hơn
+    }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
 
-      const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF("p", "mm", "a4");
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
+      // Tạo link download ảnh
+      const link = document.createElement("a");
+      link.href = imgData;
+      link.download = "ket-qua.png";
+      link.click();
+      element.style.backgroundImage = "";
+    });
+    // const element = document.getElementById("content-to-print");
+    // element.classList.add("print-mode");
 
-      const imgWidth = pdfWidth;
-      const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+    // setTimeout(async () => {
+    //   const canvas = await html2canvas(element, {
+    //     scale: 1,
+    //     useCORS: true,
+    //   });
 
-      // Tính toán độ cao trang PDF
-      const canvasPageHeight = Math.floor(pdfHeight * (canvas.width / pdfWidth));
-      console.log(canvasPageHeight);
+    //   const { jsPDF } = window.jspdf;
+    //   const pdf = new jsPDF("p", "mm", "a4");
+    //   const pdfWidth = pdf.internal.pageSize.getWidth();
+    //   const pdfHeight = pdf.internal.pageSize.getHeight();
 
-      let position = 0;
-      let page = 0;
+    //   const imgWidth = pdfWidth;
+    //   const imgHeight = (canvas.height * pdfWidth) / canvas.width;
 
-      while (position < canvas.height) {
-        const pageCanvas = document.createElement("canvas");
-        pageCanvas.width = canvas.width;
-        pageCanvas.height = Math.min(canvasPageHeight, canvas.height - position);
+    //   // Tính toán độ cao trang PDF
+    //   const canvasPageHeight = Math.floor(pdfHeight * (canvas.width / pdfWidth));
+    //   console.log(canvasPageHeight);
 
-        const pageCtx = pageCanvas.getContext("2d");
-        pageCtx.drawImage(
-          canvas,
-          0,
-          position,
-          canvas.width,
-          pageCanvas.height,
-          0,
-          0,
-          canvas.width,
-          pageCanvas.height
-        );
+    //   let position = 0;
+    //   let page = 0;
 
-        const imgData = pageCanvas.toDataURL("image/png");
-        if (page > 0) pdf.addPage();
-        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, (pageCanvas.height * imgWidth) / canvas.width);
+    //   while (position < canvas.height) {
+    //     const pageCanvas = document.createElement("canvas");
+    //     pageCanvas.width = canvas.width;
+    //     pageCanvas.height = Math.min(canvasPageHeight, canvas.height - position);
 
-        position += canvasPageHeight;
-        page++;
-      }
+    //     const pageCtx = pageCanvas.getContext("2d");
+    //     pageCtx.drawImage(
+    //       canvas,
+    //       0,
+    //       position,
+    //       canvas.width,
+    //       pageCanvas.height,
+    //       0,
+    //       0,
+    //       canvas.width,
+    //       pageCanvas.height
+    //     );
 
-      // Điều chỉnh khoảng cách và padding của trang PDF
-      pdf.save("ket-qua.pdf");
-      element.classList.remove("print-mode");
-    }, 300);
+    //     const imgData = pageCanvas.toDataURL("image/png");
+    //     if (page > 0) pdf.addPage();
+    //     pdf.addImage(imgData, "PNG", 0, 0, imgWidth, (pageCanvas.height * imgWidth) / canvas.width);
+
+    //     position += canvasPageHeight;
+    //     page++;
+    //   }
+
+    //   // Điều chỉnh khoảng cách và padding của trang PDF
+    //   pdf.save("ket-qua.pdf");
+    //   element.classList.remove("print-mode");
+    // }, 300);
   };
 
   const getDataApi = async () => {

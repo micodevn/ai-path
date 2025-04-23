@@ -191,3 +191,7 @@ body {
   gap: 24px;
   align-items: center;
 }
+
+#content-to-print {
+  padding: 24px 0;
+}
