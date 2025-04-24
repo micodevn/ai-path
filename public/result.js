@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!window.contentLoaded) {
             return;
         }
-        
+
         const element = document.getElementById("content-to-print");
         element.classList.toggle('print-mode', true);
         element.style.backgroundImage = "url('background.png')";
